@@ -4,7 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\User;
+use App\Models\Subject;
 class UserSubject extends Seeder
 {
     /**
@@ -28,12 +29,12 @@ class UserSubject extends Seeder
 
 
         DB::table('usersubjects')->insert([
-            'user_id' => 1,
-            'subject_id' => 3,
+            'user_id' => User::all()->random()->id,
+            'subject_id' => Subject::all()->random()->id,
         ]);
         DB::table('usersubjects')->insert([
-            'user_id' => 3,
-            'subject_id' => 1,
+            'user_id' => User::all()->random()->id,
+            'subject_id' => Subject::all()->random()->id,
         ]);
     }
 }
